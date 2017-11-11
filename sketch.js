@@ -22,16 +22,19 @@ function draw(){
     image(colourImg, 0 , 0, 600,400);
   }
   if(inc==1){
-    image(monoImg,0,0,600,400);
-    monoImg.filter("gray");
-  }
-  if(inc==2){
     image(invertImg,0,0,600,400);
     if(cout==true){
       invertImg.filter(INVERT);
     }
     cout=false;
   }
+  if(inc==2){
+    image(monoImg,0,0,600,400);
+    monoImg.filter("gray");
+  }
+  noStroke();
+  fill(0);
+  ellipse(300,200,10,10);
 }
 
 function keyPressed(){
@@ -42,6 +45,15 @@ function keyPressed(){
     }
     else{
       inc +=1;
+    }
+    console.log(inc);
+  }
+  if(key == 'A'){
+    if(inc == 0){
+      inc=2
+    }
+    else{
+      inc -=1;
     }
     console.log(inc);
   }
